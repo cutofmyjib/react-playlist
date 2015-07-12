@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="http://fb.me/react-0.13.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.13.0.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="container">
+  </div>
+</body>
+<script type="text/jsx">
+  var Thumbnail = React.createClass({
+
+    render: function(){
+      return <div className="col-xs-6 col-md-3">
+    <a href={this.props.imageHref} className="thumbnail">
+      <img src={this.props.imageUrl} />
+    </a>
+  </div>
+    }
+  });
+
+  var ThumbnailList = React.createClass({
+    render: function(){
+      var list = this.props.thumbnailData.map(function(thumbnailProps){
+        return <Thumbnail {...thumbnailProps}/>
+      });
+      return <div>
+        {list}
+      </div>
+    }
+  });
+
+  var options = {
+  thumbnailData: [{
+      imageHref: "http://thecatapi.com",
+      imageUrl: "http://thecatapi.com/api/images/get?format=src&type=jpg"
+    }, {
+      imageHref: "http://thecatapi.com",
+      imageUrl: "http://thecatapi.com/api/images/get?format=src&type=jpg"
+    }, {
+      imageHref: "http://thecatapi.com",
+      imageUrl: "http://thecatapi.com/api/images/get?format=src&type=jpg"
+    }, {
+      imageHref: "http://thecatapi.com",
+      imageUrl: "http://thecatapi.com/api/images/get?format=src&type=jpg"
+    }]
+  };
+
+  var element = React.createElement(ThumbnailList, options)
+  React.render(element, document.getElementById('container'));
+</script>
+</html>
