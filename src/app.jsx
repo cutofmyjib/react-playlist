@@ -1,9 +1,21 @@
 var React = require('react');
+var ThumbnailList = require('./thumbnail-list');
 
-var App = React.createClass({
-  render: function(){
-    return <h1>hello world</h1>
-  }
-})
+var options = {
+  thumbnailData: [{
+      imageHref: "http://thecatapi.com",
+      imageUrl: "http://thecatapi.com/api/images/get?format=src&type=jpg"
+    }, {
+      imageHref: "http://thecatapi.com",
+      imageUrl: "http://thecatapi.com/api/images/get?format=src&type=jpg"
+    }, {
+      imageHref: "http://thecatapi.com",
+      imageUrl: "http://thecatapi.com/api/images/get?format=src&type=jpg"
+    }, {
+      imageHref: "http://thecatapi.com",
+      imageUrl: "http://thecatapi.com/api/images/get?format=src&type=jpg"
+    }]
+  };
 
-React.render(<App/>, document.getElementById('#container'));
+  var element = React.createElement(ThumbnailList, options)
+  React.render(element, document.getElementById('container'));
