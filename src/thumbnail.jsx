@@ -17,6 +17,9 @@ module.exports = React.createClass({
         <div className="media-body">
           <h4 className="media-heading">{this.props.name}</h4>
         </div>
+        <div>
+          <audio ref="audio_tag" src={this.props.audio} controls />
+        </div>
       </div>
       </div>
     </div>
